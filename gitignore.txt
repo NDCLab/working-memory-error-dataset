@@ -1,0 +1,8 @@
+# Sourcedata PsychoPy files
+/data
+
+# Jupyter notebook crash files
+**.ipynb_checkpoints
+
+**.DS_Store
+
