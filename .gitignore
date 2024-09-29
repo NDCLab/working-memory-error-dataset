@@ -4,3 +4,7 @@
 # data specific files
 derivatives/*
 sourcedata/
+
+# cache files
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
