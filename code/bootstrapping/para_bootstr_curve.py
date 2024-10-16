@@ -80,10 +80,11 @@ def fit_curve_bootstr(subjects, n_iterations=10, output_var="similarity"):
         for condition in [0, 1]:
             participants_results = {"sub": [],  "results": []}
             for sub in subjects:
-                print(f"Fitting curves to bootstrapped data of sub-{sub}...")
+                print(f"Fitting curves to bootstrapped data of sub-{sub}...", flush=True)
+                sys.stdout.flush()
                 individual_results = []
                 p_matrix = np.load(f"{npy_save_path}raw/sub-{sub}_{output_var}_{df_var}_{condition}.npy")
-                for i in tqdm(range(p_matrix.shape[0])):
+                for i in tqdm(range(p_matrix.shape[0]), file=sys.stdout): # should be 10000
                     x_data = p_matrix[i, :, 0]
                     y_data = p_matrix[i, :, 1]
                     best_fit_params, best_r2, best_rel = run_optimization(x_data, y_data, bounds, n_iterations=n_iterations)
@@ -94,9 +95,12 @@ def fit_curve_bootstr(subjects, n_iterations=10, output_var="similarity"):
             with open(f"{npy_save_path}res_curve/{output_var}_{df_var}_{condition}.pkl", "wb") as tf:
                 pickle.dump(participants_results, tf)
 
-npy_save_path = "/Users/fzaki001/Documents/working-memory-error-dataset/derivatives/face-jitter/behavior/bootstrap/"
+npy_save_path = "/home/data/NDClab/datasets/working-memory-error-dataset/derivatives/face-jitter/behavior/bootstrap/"
 pattern = re.compile(r'sub-(\d+)')
 subjects = sorted(list(set([pattern.search(file).group(1) for file in os.listdir(npy_save_path+"raw/")])))
+
+import sys
+sys.stdout = open('output.txt','wt')
 
 PROCESSES = mp.cpu_count()
 
