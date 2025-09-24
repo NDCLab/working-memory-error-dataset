@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=wme-bootstrap         # create a short name for your job
 #SBATCH --nodes=1                # node count
-#SBATCH --ntasks=5               # total number of tasks across all nodes
-#SBATCH --cpus-per-task=1
-#SBATCH --time=24:00:00          # total run time limit (HH:MM:SS)
-#SBATCH --mem=20G
+#SBATCH --ntasks=16               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=2
+#SBATCH --time=100:00:00          # total run time limit (HH:MM:SS)
+#SBATCH --mem=40G
 #SBATCH --partition=highmem1
 #SBATCH --qos=highmem1
 #SBATCH --account=iacc_gbuzzell
@@ -12,17 +12,15 @@
 #SBATCH --mail-type=end          # send email when job ends
 #SBATCH --mail-user=fzaki001@fiu.edu
 
-
-####conda init
-conda activate /home/fzaki001/.conda/envs/wme-env
-conda run -n wme-env python para_bootstr_curve.py
+export PYTHONUNBUFFERED=TRUE
 
 pwd; hostname; date
 echo "flurm cpus per task: $SLURM_CPUS_PER_TASK"
-printenv
 
+source activate base
+conda activate /home/fzaki001/.conda/envs/wme-env
+conda run -n wme-env python -u para_bootstr_curve_s5.py
 
-#errors=$(cat ${SLURM_JOB_NAME}-${SLURM_JOB_ID}.out | grep "Error")
 errors=$(cat ${SLURM_JOB_NAME}-${SLURM_JOB_ID}.out | grep "Error")
 if [[ -z ${errors} ]]; then
     echo "Behavior processing complete."

@@ -1,4 +1,5 @@
 import numpy as np
+import datetime
 import pickle
 import re
 import os
@@ -8,6 +9,8 @@ from sklearn.metrics import r2_score
 from math import pi
 import multiprocessing as mp
 from multiprocessing import Pool
+
+date_time = datetime.datetime.now()
 
 def calculate_rel(r2, preds):
     rel = r2 * np.sum((preds - np.mean(preds))**2) / len(preds)
@@ -92,15 +95,14 @@ def fit_curve_bootstr(subjects, n_iterations=10, output_var="similarity"):
                 participants_results["sub"].append(sub)
                 participants_results["results"].append(individual_results)
             
-            with open(f"{npy_save_path}res_curve/{output_var}_{df_var}_{condition}.pkl", "wb") as tf:
-                pickle.dump(participants_results, tf)
+                with open(f"{npy_save_path}res_curve/{output_var}_{df_var}_{condition}_{date_time}.pkl", "ab") as tf:
+                    pickle.dump(participants_results, tf)
 
 npy_save_path = "/home/data/NDClab/datasets/working-memory-error-dataset/derivatives/face-jitter/behavior/bootstrap/"
 pattern = re.compile(r'sub-(\d+)')
 subjects = sorted(list(set([pattern.search(file).group(1) for file in os.listdir(npy_save_path+"raw/")])))
-
 import sys
-sys.stdout = open('output.txt','wt')
+sys.stdout = open(f"output_{date_time.strftime('%d-%m-%Y_%H_%M_%S')}.txt",'wt')
 
 PROCESSES = mp.cpu_count()
 
