@@ -16,7 +16,7 @@ This `main` branch contains completed releases for this project. For all work-in
 ## Contributors
 | Role | Name |
 | ---  | ---  |
-| study lead | Feliks Zakirov |
+| study lead | Felix Zakirov |
 | PI | George Buzzell |
 
 Learn more about us [here](https://www.ndclab.com/people).
