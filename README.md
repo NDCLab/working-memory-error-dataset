@@ -1,25 +1,17 @@
-# Effects of Error and Conflict on Working Memory
+Supplemental Materials for Preprint: Effects of Error and Response Conflict on Working Memory Maintenance and Retroactive Interference
 
-## Project Goal
-Cognitive control plays a crucial role in adaptive behavior and achieving one’s goals. At the same time, in practice, mechanisms of cognitive control never operate alone; they are utilized together with other cognitive functions. From behavioral dual-task studies, there is evidence showing different relationships between working memory and speeded conflict task performance when given together, depending on task specifics and stimuli characteristics (Oberauer, 2019; Moss et al., 2020; Muhmenthaler et al., 2023). Additionally, there is data reporting working memory performance impairment specifically related to errors committed in speeded conflict tasks (Wessel et al., 2022). This work is aimed to investigate relationships between cognitive control processes, such as performance monitoring and conflict processing, and working memory on a behavioral level.
+## Contents
+This repository is organized as follows:
 
-## Background & Design
-This project employs two behavioral experiments to explore the interactions between working memory, error processing, and conflict resolution. Both experiments utilized a combined working memory conflict task.
-
-## Roadmap
-Future releases and milestones will be documented here.
-
-## Work in Development
-This `main` branch contains completed releases for this project. For all work-in-progress, please switch over to the `dev` branches.
-
-
-## Contributors
-| Role | Name |
-| ---  | ---  |
-| study lead | Felix Zakirov |
-| PI | George Buzzell |
-
-Learn more about us [here](https://www.ndclab.com/people).
+- **`code/`**: Contains all scripts used for the statistical analyses reported in the paper.
+  - `lmer_export_apa.R`: R function to generate APA-style papers presented in the paper.
+  - `statistical_analyses.R`: R code with data preprocessing steps and statistical models presented in the paper.
+- **`data/`**: Contains all datasets used for the statistical analyses reported in the paper.
+  - `exp1/`: Data used in Experiment 1 analyses (used in the corresponding parts of R script).
+  - `exp2/`: Data used in Experiment 2 analyses (used in the corresponding parts of R script).
+- **`materials/`**: Contains all datasets used for the statistical analyses reported in the paper.
+  - `wme-face-new/`: Files for PsychoPy task used in Experiment 1.
+  - `wme-face-jitter-l/`: Files for PsychoPy task used in Experiment 2.
 
 ## Contributing
 If you are interested in contributing, please read our [CONTRIBUTING.md](CONTRIBUTING.md) file.
