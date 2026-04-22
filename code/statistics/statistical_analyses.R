@@ -44,7 +44,6 @@ posthoc_results <- pairs(emm, adjust = "fdr")
 print(posthoc_results)
 confint(posthoc_results)
 
-
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker accuracy
 # ------------------------------------------------------------------------------
@@ -96,7 +95,6 @@ model <- lmer(rt ~ congruent + (1 | sub), data = df)
 summary(model)
 # lmer_export_apa(model = model, path = sprintf("%s/%s.docx", table_output_path, analysis_name))
 
-
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker RT; effect of accuracy only
 # ------------------------------------------------------------------------------
@@ -122,7 +120,6 @@ contrasts(df$acc) <- -rev(contr.sum(2))
 model <- lmer(rt ~ acc + (1 | sub), data = df)
 summary(model)
 # lmer_export_apa(model = model, path = sprintf("%s/%s.docx", table_output_path, analysis_name))
-
 
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker RT; effect of accuracy AND congruency
@@ -166,7 +163,6 @@ interaction_plot <- ggplot(df, aes(x = congruent, y = rt, color = acc, group = a
   theme_bw()
 
 print(interaction_plot)
-
 
 # ------------------------------------------------------------------------------
 # [Main] Average recognition and 2s
@@ -258,7 +254,6 @@ posthoc_results <- pairs(emm, adjust = "fdr")
 print(posthoc_results)
 confint(posthoc_results)
 
-
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker accuracy
 # ------------------------------------------------------------------------------
@@ -282,7 +277,6 @@ contrasts(df$congruent) <- contr.sum(2)
 model <- lmer(proportion ~ congruent + (1 | sub), data = df)
 summary(model)
 # lmer_export_apa(model = model, path = sprintf("%s/%s.docx", table_output_path, analysis_name))
-
 
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker RT; effect of congruency only
@@ -310,7 +304,6 @@ model <- lmer(rt ~ congruent + (1 | sub), data = df)
 summary(model)
 # lmer_export_apa(model = model, path = sprintf("%s/%s.docx", table_output_path, analysis_name))
 
-
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker RT; effect of accuracy only
 # ------------------------------------------------------------------------------
@@ -336,7 +329,6 @@ contrasts(df$acc) <- -rev(contr.sum(2))
 model <- lmer(rt ~ acc + (1 | sub), data = df)
 summary(model)
 # lmer_export_apa(model = model, path = sprintf("%s/%s.docx", table_output_path, analysis_name))
-
 
 # ------------------------------------------------------------------------------
 # [Preliminary] Flanker RT; effect of accuracy AND congruency
@@ -365,7 +357,6 @@ contrasts(df$acc) <- -rev(contr.sum(2))
 model <- lmer(rt ~ congruent * acc + (1 | sub), data = df)
 summary(model)
 # lmer_export_apa(model = model, path = sprintf("%s/%s.docx", table_output_path, analysis_name))
-
 
 # ------------------------------------------------------------------------------
 # [Main] Trial-level models (Congruency effects)
@@ -400,7 +391,6 @@ if (sample == "similarity") {
 
 summary(model)
 confint(model)
-
 
 # ------------------------------------------------------------------------------
 # JN plot
@@ -487,7 +477,6 @@ print(my_plot)
 #   bg = "white"      # Specify a white background
 # )
 
-
 # ------------------------------------------------------------------------------
 # [Supplement] Trial-level models (Accuracy effects)
 # ------------------------------------------------------------------------------
@@ -528,7 +517,6 @@ if (sample == "similarity") {
 
 summary(model)
 confint(model)
-
 
 # ------------------------------------------------------------------------------
 # [Supplement] Average WMRI and recognition peformance by congruency (N bins)
