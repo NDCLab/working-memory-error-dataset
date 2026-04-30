@@ -1,3 +1,5 @@
+Zakirov, F., Steinhauser, M., & Buzzell, G. A. (2026, April 23). Effects of Error and Response Conflict on Working Memory Maintenance and Retroactive Interference. _PsyArXiv_. osf.io/preprints/psyarxiv/pwat2_v1
+
 Supplemental Materials for Preprint: Effects of Error and Response Conflict on Working Memory Maintenance and Retroactive Interference
 
 ## Contents
